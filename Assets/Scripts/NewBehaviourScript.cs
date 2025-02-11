@@ -26,8 +26,12 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     public void RotateTowardsMouse() {
-        float angle = Mathf.Atan2(Input.mousePosition.y - transform.position.y, Input.mousePosition.x - transform.position.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        Vector2 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = mousepos - rb.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        float rotationSpeed = 5.0f; 
+        rb.transform.rotation = Quaternion.Slerp(rb.transform.rotation, rotation, rotationSpeed * Time.deltaTime);
     }
 
 }
