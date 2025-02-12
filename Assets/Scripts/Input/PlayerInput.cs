@@ -5,12 +5,14 @@ using UnityEngine;
 
 class PlayerInput : MonoBehaviour
 {
-    public float xAxis { get; set; }
-    public float yAxis { get; set; }
+    public float XAxis { get; set; }
+    public float YAxis { get; set; }
+    public bool Shoot { get; set; }
     void Update()
     {
-        xAxis = Input.GetAxisRaw("Horizontal");
-        yAxis = Input.GetAxisRaw("Vertical");
+        XAxis = Input.GetAxisRaw("Horizontal");
+        YAxis = Input.GetAxisRaw("Vertical");
+        Shoot = Input.GetButtonDown("Fire1");
     }
 
 }

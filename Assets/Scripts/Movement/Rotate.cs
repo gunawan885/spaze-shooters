@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class Rotate: MonoBehaviour{
+    public Vector2 RelativeDirection { get; set; }
     void Update()
     {
         RotateTowardsMouse();
@@ -10,9 +11,9 @@ public class Rotate: MonoBehaviour{
         // Mengambil posisi mouse di layar dan mengonversinya ke koordinat
         Vector2 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Menghitung vektor arah dari posisi objek
-        Vector2 direction = mousepos - (Vector2)transform.position;
+        RelativeDirection = mousepos - (Vector2)transform.position;
         // Menghitung sudut rotasi yang diperlukan agar objek menghadap ke arah mouse.
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        float angle = Mathf.Atan2(RelativeDirection.y, RelativeDirection.x) * Mathf.Rad2Deg - 90f;
         // Membuat rotasi berdasarkan sudut yang dihitung.
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         // Mengontrol kecepatan rotasi objek.

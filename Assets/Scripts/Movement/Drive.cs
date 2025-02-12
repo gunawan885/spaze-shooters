@@ -17,6 +17,6 @@ public class Drive : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(playerInput.xAxis, playerInput.yAxis).normalized * Speed * Time.fixedDeltaTime;
+        rb.velocity = new Vector2(playerInput.XAxis, playerInput.YAxis).normalized * Speed * Time.fixedDeltaTime;
     }
 }
