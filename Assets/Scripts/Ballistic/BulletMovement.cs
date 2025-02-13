@@ -16,12 +16,12 @@ public class BulletMovement : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
+        relativeDirection = player.GetComponent<Rotate>().RelativeDirection;
     }
 
     // Update is called once per frame
     void Update()
     {
-        relativeDirection = player.GetComponent<Rotate>().RelativeDirection;
         time += Time.deltaTime;
         if (time > lifeTime)
         {
