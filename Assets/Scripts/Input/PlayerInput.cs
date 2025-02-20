@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-class PlayerInput : MonoBehaviour
+public class PlayerInput : MonoBehaviour
 {
     public float XAxis { get; set; }
     public float YAxis { get; set; }

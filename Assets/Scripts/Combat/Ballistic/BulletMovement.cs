@@ -33,9 +33,5 @@ public class BulletMovement : MonoBehaviour
     {
         rb.velocity = relativeDirection.normalized * speed * Time.fixedDeltaTime;
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        Destroy(gameObject);
-    }
 
 }
